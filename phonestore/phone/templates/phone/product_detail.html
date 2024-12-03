@@ -1,0 +1,26 @@
+{% extends "phone/master.html" %} {% block title %} Product detail {% endblock%}
+{% block content%}
+
+<div class="mycard">
+  <h1>Product List</h1>
+  <ul>
+    {% for pd in myproduct.product_set.all %}
+    <div class="shopping">
+      {% if request.user.is_authenticated %}
+      <p>User_id = {{ User.id}}</p>
+
+      <form action="{% url 'add_to_cart' pd.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="buy-now-button">Add to Cart</button>
+      </form>
+      {% endif %}
+      <img src="{{pd.ImageURL}}" width="200">
+      <li>
+        {{pd.name}}
+      </li>
+    </div>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

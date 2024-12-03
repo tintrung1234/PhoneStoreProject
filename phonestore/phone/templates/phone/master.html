@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'mystyles.css' %}" />
+  <link rel="icon" href="{% static 'favicon.ico' %}">
+</head>
+
+<body class="">
+
+  <div class="my_nav">
+    {% include 'phone/navbar.html' %}
+  </div>
+  {% block content %} {% endblock %}
+</body>
+
+
+
+</html>

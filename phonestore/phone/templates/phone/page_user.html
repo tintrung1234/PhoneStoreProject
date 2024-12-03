@@ -1,0 +1,11 @@
+{% block content%}
+<div class="profile">
+    <h2>Welcome {{current_user.username}} !</h2>
+
+    {% for x in mymembers %}
+    <li>{{ x.firstname }} {{ x.lastname }}</li>
+    {% endfor %}  
+    <br />
+    <a href="{% url 'logout' %}">Logout</a>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+<div class="topnav">
+    <div class="menu">
+        <a href="/">HOME</a> |
+        <a href="/categorys">phone</a> |
+        <a href="/order">BUY</a>
+    </div>
+
+    <div class="searchBar">
+        <form class="d-flex" role="search" method="POST" action="{% url 'search-box' %}">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search" name="search_query" required
+                aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="auth">
+        <ul class="accountCheck">
+            {% if request.user.is_authenticated %}
+
+            <div class="account"> <a href="/page_user">Account</a></div>
+            {% else %}
+
+            <div class="info">
+                <a href="/login">Login</a> |
+                <a href="/register">Register</a>
+            </div>
+
+            {% endif %}
+        </ul>
+
+    </div>
+</div>

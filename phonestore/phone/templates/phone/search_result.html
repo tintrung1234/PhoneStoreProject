@@ -1,0 +1,14 @@
+{% extends 'phone/master.html' %}
+
+{% block content %}
+{% if search_query %}
+<h1>You searching for {{search_query}}</h1>
+
+{% for post in posts %}
+{{ post }} - {{ post.image }} </br>
+{% endfor %}
+
+{% else %}
+<h1>Please enter a search query</h1>
+{% endif %}
+{% endblock content%}

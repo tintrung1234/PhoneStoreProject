@@ -1,0 +1,16 @@
+{% extends "phone/master.html" %}
+{% block title %} Order detail {% endblock%}
+{% block content%}
+
+<div class="buy">
+    <p>List item</p>
+    <ul>
+        
+        {% for cart_item in cart_items %}
+        <li>{{ cart_item.product.name }} - Quantity: {{ cart_item.quantity }}</li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock %}
